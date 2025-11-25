@@ -11,6 +11,16 @@ The package currently implements algorithms for three key measures established i
 | Counterfactual Fairness                                | What would the disadvantaged (advantaged) individual's predicted Y be if they had the identity (A), mediating characteristics (M), and confounding characteristics (C) of the advantaged (disadvantaged) group?                                          | Individual    | N/A                                | Predictions from functional relationships of fitted SCM                       |
 
 
+## Useage [Forthcoming]
+
+The core of the *CausalFairness* package is the `CausalFairnessDecomposition` class (see Table 1), built on the standard fairness model. It accepts $X, Y, \hat{Y}$, lists for $A, M$, optionally $C$, derived from an SCM (algorithmically discovered or expert-curated) or a DAG, and a task-type flag (regression/classification). The class provides three main methods:
+
+- `analyse_mean_difference` - causal decompositon of statistical parity using the Counterfactual Effects framework; 
+- `analyse_equalized_odds` - causal decomposition of error rates; 
+- `analyse_counterfactual_fairness` - individual-level counterfactual fairness analysis. 
+
+Each method compares the outcome(acceptance rate, error rates, or predicted outcome $\hat{Y}_i$) in two counterfactual worlds: one with observed $A$, and one with counterfactual $A$. 
+
 ## Security
 
 See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
